@@ -58,6 +58,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           height: 40,
                         ),
                         ResponsiveButton(
+                          color: Colors.white,
                           width: 120,
                         )
                       ],
