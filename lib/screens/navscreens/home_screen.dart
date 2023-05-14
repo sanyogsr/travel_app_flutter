@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myappp4/widgets/app_large_text.dart';
+import 'package:myappp4/widgets/app_text.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
             ),
           ),
           SizedBox(
-            height: 40,
+            height: 30,
           ),
           //discover text
           Container(
@@ -49,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                 color: Colors.black,
               )),
           SizedBox(
-            height: 30,
+            height: 20,
           ),
           //tabbbar
           Container(
@@ -76,24 +77,92 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
                   ]),
             ),
           ),
+          //tabbar View
           Container(
+            padding: const EdgeInsets.only(left: 20),
             height: 300,
             width: double.maxFinite,
             child: TabBarView(controller: _tabController, children: [
-              Container(
-                width: 200,
-                height: 300,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
-                  color: Colors.white,
-                  image: DecorationImage(
-                      image: AssetImage('assets/images/model_one.jpg'),
-                      fit: BoxFit.cover),
-                ),
+              ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: 3,
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: const EdgeInsets.only(right: 15, top: 10),
+                    width: 200,
+                    height: 300,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.white,
+                      image: DecorationImage(
+                          image: AssetImage('assets/images/model_one.jpg'),
+                          fit: BoxFit.cover),
+                    ),
+                  );
+                },
               ),
               Text('There'),
               Text('Bye'),
             ]),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Container(
+            margin: const EdgeInsets.only(left: 20, right: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppLargeText(
+                  text: 'Explore More',
+                  size: 22,
+                  color: Colors.black,
+                ),
+                AppText(
+                  text: 'See All',
+                  color: Colors.black38,
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            height: 120,
+            width: double.maxFinite,
+            margin: const EdgeInsets.only(left: 20),
+            child: ListView.builder(
+                itemCount: 5,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (_, index) {
+                  return Container(
+                    margin: const EdgeInsets.only(right: 30),
+                    child: Column(
+                      children: [
+                        Container(
+                          // margin: const EdgeInsets.only(right: 30),
+                          width: 80,
+                          height: 80,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            image: DecorationImage(
+                                image: AssetImage('assets/images/model_one.jpg'),
+                                fit: BoxFit.cover),
+                          ),
+                        ),
+                    SizedBox(height: 10,),
+                        Container(
+                          child: AppText(
+                            text: 'Sanyog',
+                            color: Colors.black45,
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                }),
           )
         ],
       ),
@@ -124,6 +193,6 @@ class _CirclePainter extends BoxPainter {
 
     final Offset CircleOffset =
         Offset(configuration.size!.width / 2, configuration.size!.height);
-    canvas.drawCircle(offset, radius, _paint);
+    canvas.drawCircle(offset + CircleOffset, radius, _paint);
   }
 }

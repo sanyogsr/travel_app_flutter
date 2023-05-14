@@ -13,7 +13,7 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   List screens = [
-    // HomeScreen(),
+    HomeScreen(),
     BarScreen(),
     SearchScreen(),
     MyScreen(),
@@ -29,7 +29,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: screens[currentIndex ],
+      body: screens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
           selectedItemColor: Colors.black54,
           unselectedItemColor: Colors.grey.withOpacity(0.5),

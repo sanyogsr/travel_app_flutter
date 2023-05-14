@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myappp4/screens/Welcome_screen.dart';
+import 'package:myappp4/screens/detail_screen.dart';
 import 'package:myappp4/screens/navscreens/home_screen.dart';
 import 'package:myappp4/screens/navscreens/main_screen.dart';
 
@@ -14,7 +15,7 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: DetailScreen(),
     );
   }
 }
