@@ -30,9 +30,9 @@ class ResponsiveButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment:MainAxisAlignment.center,
           children: [
-            AppText(text: 'Book Trip Now',color: Colors.white,),
+           isResponsive==true?AppText(text: 'Book Trip Now',color: Colors.white,):Container(),
             SizedBox(width: 10,)
-            ,  Icon(Icons.arrow_forward,color: Colors.white,)
+            , Icon(Icons.arrow_forward,color:isResponsive==true ?Colors.white:Colors.black,)
           ],
         ),
       ),

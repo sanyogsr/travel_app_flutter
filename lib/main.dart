@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:myappp4/cubit/app_cubit_logics.dart';
+import 'package:myappp4/cubit/app_cubits.dart';
 import 'package:myappp4/screens/Welcome_screen.dart';
 import 'package:myappp4/screens/detail_screen.dart';
 import 'package:myappp4/screens/navscreens/home_screen.dart';
@@ -15,7 +18,14 @@ class Main extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DetailScreen(),
+      home: BlocProvider<AppCubits>(
+        
+        create: (context)=> 
+        AppCubits(),
+
+      
+      child: AppCubitLogics(),
+      ),
     );
   }
 }
